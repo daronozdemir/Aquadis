@@ -1,0 +1,17 @@
+<div class="loginInputBox  animated fadeIn fast">
+  <img src="../../../assets/User.png" class="userImage" alt="User">
+  <h2>Login</h2>
+  <form (submit)="loginUser($event)">
+    <p [ngClass]="{'alert': show}">Email</p>
+    <input type="text" name="text1" id="username" placeholder="Enter Email">
+    <p [ngClass]="{'alert': show}" >Password</p>
+    <input type="password" name="" placeholder="•••" id="password">
+    <span [ngClass]="{'alert' : show}" *ngIf="show">
+  Username or password incorrect <br></span>
+    <input type="submit" name="" value="Sign In">
+    <form>
+      <a href="#" class="left" routerLink="/forgotPassword">Forgot Password</a>
+      <a href="#" class="right" routerLink="/createUser">Create Account</a></form>
+  </form>
+</div>
+

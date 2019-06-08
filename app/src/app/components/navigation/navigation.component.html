@@ -1,0 +1,27 @@
+<nav class="navbar nav-round navbar-expand-lg navbar-light " *ngIf="userService.loggedInUser != null">
+  <div id="top-bar">
+    Welkom terug {{userService.loggedInUser.name}} <img src="{{userService.loggedInUser.avatarUrl}}" alt="Logged in user">
+  </div>
+
+  <a class="navbar-logo" routerLink="/dashboard"><img src="../../../assets/img/logo.svg" alt="Aquadine logo"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul>
+      <li data-toggle="collapse" data-target=".collapse.navbar-collapse.show">
+        <a routerLink="/dashboard" title="Dashboard" class="nav-item nav-link active" href="#">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li data-toggle="collapse" data-target=".collapse.navbar-collapse.show">
+        <a routerLink="/account" title="Account" class="nav-item nav-link">Account</a>
+      </li>
+      <li data-toggle="collapse" data-target=".collapse.navbar-collapse.show">
+        <a (click)="logout()" routerLink="/" title="Uitloggen" class="nav-item nav-link">Uitloggen</a>
+      </li>
+      <!--<li data-toggle="collapse" data-target=".navbar-collapse.show"><a routerLink="/activities" title="Activities"  class="nav-item nav-link" href="#">Activiteiten</a></li>-->
+    </ul>
+  </div>
+
+  <div class="btn nav-btn clickable uppercase" routerLink="organize">Maak activiteit <img src="../../../assets/icons/plus.png" alt="Plus icon"></div>
+</nav>

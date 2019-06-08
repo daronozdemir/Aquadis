@@ -1,0 +1,318 @@
+<div *ngIf="activity">
+
+
+  <div class="top-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="bold">
+            <span class="lighter">{{getFirstPartOf(activity.date, 0)}} </span>
+            {{getFirstPartOf(activity.date, 1)}} {{getFirstPartOf(activity.date, 2)}}
+            <span class="blue bold larger">.</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div><!-- /top-info -->
+
+
+  <div class="main-info">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6 slug d-none d-sm-block" *ngIf="category">
+          <a (click)="goBack()" class="backLink bold"><span class="blue"><</span> terug</a>
+          <span class="blue bold divider"> | </span> Uitnodigingen > {{activity.date}} > {{category.name}}
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-12  organizer" *ngIf="organizer">
+          <div class="right">
+            <div class="img-box">
+              <img src="{{organizer.avatarUrl}}" alt="profile picture of {{organizer.name}}">
+            </div>
+            <span> {{organizer.name}}</span>
+          </div>
+        </div>
+      </div><!-- /row  (back - slug -- organizer -->
+
+
+
+      <div class="row">
+        <div class="col-md-6 image-section d-none d-sm-block">
+          <div class="img-box animated fadeIn">
+            <img src="{{activity.img}}">
+          </div>
+
+        </div><!-- /col-md-6  images -->
+
+        <div class="col-md-6 attendees-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-lg-6 p-top">
+                <h2>Aanwezigen<span class="blue bold">.</span></h2>
+              </div>
+              <div class="col-lg-6 d-none d-lg-block p-top">
+                <h2>Uitgenodigd<span class="blue bold">.</span></h2>
+              </div>
+            </div>
+
+            <div class="row"> <!-- users -->
+
+              <div class="col-md-12 col-lg-6"> <!-- ATTENDING -->
+                <ul>
+                  <div *ngFor="let user of attendees; let i = index;">
+                    <li *ngIf="i < displayAttendees">
+
+                      <div class="img-box">
+                        <img src="{{user.avatarUrl}}" alt="profile picture of {{user.name}}">
+                      </div>
+                      <p class="names">{{user.name}}</p>
+                      <span class="status">gereageerd</span>
+                    </li>
+                  </div>
+                </ul>
+                <span class="toggle-btn bold clickable"
+                      (click)="this.displayAttendees = this.displayAttendees === this.few ?  this.more : this.few;">
+                  Bekijk alle aanwezigen
+                  <img src="../../../assets/icons/down_small.png" height="7" width="12"
+                       [ngClass]="{'rotate': this.displayAttendees == this.more}"/>
+                </span>
+              </div>
+
+              <div class="col-lg-6 d-none d-lg-block "> <!-- INVITED -->
+                <ul>
+                  <div *ngFor="let user of invited; let i = index;">
+                    <li *ngIf="i < displayInvited">
+                      <div class="img-box">
+                        <img src="{{user.avatarUrl}}" alt="profile picture of {{user.name}}">
+                      </div>
+                      <p class="names">{{user.name}}</p>
+                      <span class="status grey">uitgenodigd</span>
+                    </li>
+                  </div>
+                </ul>
+                <span class="toggle-btn bold uppercase clickable"
+                      (click)="this.displayInvited = this.displayInvited === this.few ?  this.more : this.few;">
+                  Bekijk alle uitgenodigden
+                  <img src="../../../assets/icons/down_small.png" height="7" width="12"
+                       [ngClass]="{'rotate': this.displayInvited == this.more}"/>
+                </span>
+              </div>
+            </div><!-- /row   displaying users-->
+
+            <div class="row"> <!-- call section -->
+              <div class="col-md-12 call-section">
+                <div class="box">
+                  <div class="top">
+                    <div class="left boxs inf">
+                      <img class="icn1" src="../../../assets/icons/check.png">
+                      {{attendees.length}} Toezeggingen
+                    </div>
+                    <div class="right boxs inf" *ngIf="category">
+                      <img class="icn2"  src="{{category.icon}}">
+                      {{countMenus}}+ Keuzes
+                    </div>
+                  </div>
+
+                  <div class="btn-section" *ngIf="!displayAttendingSelection">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <button class="btn cancel" (click)="isAttending = false;
+                                          displayAttendingSelection = !displayAttendingSelection;"><img src="../../../assets/icons/decline.svg" height="23" width="23">
+                          Afwezig</button>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <button class="btn primary uppercase"
+                                (click)="isAttending = true;
+                                          displayAttendingSelection = !displayAttendingSelection;">
+                          Aanwezig
+                          <img src="../../../assets/icons/down.png" height="15" width="15">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn-section" *ngIf="displayAttendingSelection">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12" *ngIf="isAttending">
+                        <div class="attend-status">
+                          <img src="../../../assets/icons/check.svg" height="23" width="23">
+                          Je bent aanwezig
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12" *ngIf="isAttending">
+                        <button class="btn red cancel" (click)="isAttending = !isAttending"><img src="../../../assets/icons/decline.svg" height="23" width="23">
+                          Toch afwezig..
+                        </button>
+                      </div>
+
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12" *ngIf="!isAttending">
+                        <div class="attend-status">
+                          <img src="../../../assets/icons/decline.svg" height="23" width="23">
+                          Je bent afwezig
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12" *ngIf="!isAttending">
+                        <button class="btn green cancel" (click)="isAttending = !isAttending">
+                          <img src="../../../assets/icons/check.svg" height="23" width="23">
+                          Toch aanwezig
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <p class="info rmv-margin">Er is keuze uit {{countMenus}} menus</p>
+                  <p class="info add-margin">40% van de aanwezigen heeft zijn voorkeur al aangegeven</p>
+                </div>
+              </div>
+            </div><!-- /row    call to action section -->
+
+
+
+          </div><!-- /container   (displaying users & call to action ) -->
+
+        </div><!-- /col-md-6  attendees -->
+      </div><!-- /row   image & attendees -->
+
+
+      <div class="row">
+        <div class="col-md-6  ">
+
+          <div class="hidden-sm-down notes-section  ">
+            <span>Opmerkingen</span>
+
+            <p>{{activity.description}}</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+  </div> <!-- /main-info -->
+
+  <div class="extended-main">&nbsp;</div>
+
+  <!--<br><br><br><br><br><br>-->
+
+  <div class="menu-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Wat wil je eten<span class="blue bold">?</span></h2>
+          <br>
+          <div class="row">
+            <div class="col-md-4 center-content clickable" *ngFor="let menu of menus">
+
+              <div class="img-container" [ngClass]="{'active': checkIfSet(menu)}">
+                <img src="{{menu.img}}" width="100%" height="auto"
+                     (click)="loadSubCat(menu)" class="hover mainMenu {{menu.name}}">
+
+                <div (click)="loadSubCat(menu)" class="overlay clickable">&nbsp;</div>
+              </div>
+
+
+
+              <p>{{menu.name}}</p>
+            </div>
+          </div>
+
+          <br>
+
+          <span class="lbl">
+            Bestelling
+          </span>
+          <div class="row order-section">
+            <div class="col-md-6 order animated pulse" *ngFor="let order of personalOrders">
+              <p>{{order.name}} <span>&euro;{{order.price}}</span></p>
+            </div>
+
+            <div class="col-md-12">
+              <hr>
+
+              Totaal : &euro;{{personalPrice}}
+            </div>
+          </div>
+
+        </div> <!-- /main items -->
+        <div class="clearfix"></div>
+        <div class="col-md-6 menu-items fadeInRight fast" [ngClass]="{'animated': mainMenu }" *ngIf="mainMenu">
+
+          <div class="item-container">
+            <span class="lbl" *ngIf="searchIsEmpty">
+              {{mainMenu.name}}
+            </span>
+            <span class="lbl" *ngIf="!searchIsEmpty">
+              {{(searchedMenus$ | async)?.length}} Zoek resultaten
+              <img src="../../../assets/icons/decline.png" width="25px" class="float-right" (click)="clearSearch()">
+            </span>
+
+
+            <div class="row" *ngIf="!searchIsEmpty">
+              <div class="col-md-6 menu-item animated fadeIn faster"
+                   *ngFor="let menu of searchedMenus$ | async">
+                <div class="img-box">
+                  <img src="{{menu.img}}" width="100%" height="auto">
+                </div>
+
+                <div class="info">
+                  <span>{{menu.name}}</span>
+                  <p>{{menu.description}}</p>
+                  <p class="price" *ngIf="menu.mainId != 0">&euro;{{menu.price}}</p>
+                  <p class="price" *ngIf="menu.mainId == 0">Bekijk deze categorie</p>
+
+                  <div class="circle btn blue clickable" *ngIf="menu.mainId != 0"
+                       (click)="addOrder(menu)">
+                    <img src="../../../assets/icons/plus.png">
+                  </div>
+                  <div class="circle btn blue clickable" *ngIf="menu.mainId == 0"
+                       (click)="loadSubCat(menu)">
+                    <img src="../../../assets/icons/search_white.png" width="15px">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row" *ngIf="searchIsEmpty">
+              <div class="col-md-6 menu-item animated fadeIn faster"
+                   *ngFor="let menu of subMenus">
+                <div class="img-box">
+                  <img src="{{menu.img}}" width="100%" height="auto">
+                </div>
+
+                <div class="info">
+                  <span>{{menu.name}}</span>
+                  <p>{{menu.description}}</p>
+                  <p class="price">&euro;{{menu.price}}</p>
+
+                  <div class="circle btn blue clickable"
+                    (click)="addOrder(menu)">
+                    <img src="../../../assets/icons/plus.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="bottem-part">
+            <input #searchMenusInput id="search-menus-input" placeholder="Gerecht zoeken of toevoegen.."
+                   (input)="searchMenus(searchMenusInput.value)"> <img src="../../../assets/icons/search.png">
+          </div>
+        </div><!-- /items -->
+
+      </div>
+    </div>
+  </div>
+
+
+</div> <!-- /*ngIf = Activity loaded -->
+
+
+
+
+<app-edit-activity></app-edit-activity>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br>

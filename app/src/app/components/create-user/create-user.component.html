@@ -1,0 +1,19 @@
+<div class="createUserInputBox animated fadeIn fast">
+  <img src="../../../assets/User.png" class="userImage" alt="User">
+  <h2>Create User</h2>
+  <form (submit)="submitUser($event)">
+    <p>Name</p>
+    <input type="name" name="" placeholder="Enter name" id="name">
+    <p>Username</p>
+    <input type="username" name="" placeholder="Enter username" id="username">
+    <p>Email</p>
+    <input type="email" name="" placeholder="Enter Email" id="email">
+    <p >Password</p>
+    <input  type="password" name="" placeholder="•••" id="password">
+    <input type="submit" name="" (click)="onSubmit()" value="Submit">
+    <form>
+      <a href="#" class="left" routerLink="/login"><-Back</a>
+    </form>
+  </form>
+</div>
+

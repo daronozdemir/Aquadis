@@ -1,0 +1,180 @@
+
+<div >
+
+
+  <div class="top-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="bold">
+            <span class="lighter">Afspraak </span>
+            inplannen <span class="blue bold larger">.</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div><!-- /top-info -->
+
+
+  <div class="main-info">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6 slug">
+          <a (click)="goBack()" class="backLink bold"><span class="blue"><</span> terug</a>
+          <span class="blue bold divider"> | </span> Afspraak maken > diner
+        </div>
+
+        <div class="col-md-6 organizer">
+          <div class="right">
+            <img src="../../../assets/icons/check.png"> Opslaan voor later
+          </div>
+        </div>
+      </div><!-- /row  (back - slug -- organizer -->
+
+      <div class="row">
+        <div class="col-md-6 offset-xs-0 offset-sm-0 offset-md-3 offset-lg-3 offset-xl-3 animated fadeIn bg-white">
+          <br>
+          <h2><span class="bold blue">1.</span> Typ een datum in<span class="bold blue">.</span></h2>
+
+          <input (input)="section1 = true" type="date" class="form-control">
+          <br><br>
+        </div>
+      </div>
+
+      <br><br>
+
+      <div class="row" *ngIf="section1">
+        <div class="col-md-6 offset-xs-0 offset-sm-0 offset-md-3 offset-lg-3 offset-xl-3 animated fadeIn bg-white">
+          <br>
+          <h2><span class="bold blue">2.</span> Zoek een restaurant categorie<span class="bold blue">.</span></h2>
+          <input #searchCatsInput id="search-cats-input" class="form-control" placeholder="Zoeken.."
+                 (input)="searchCategory(searchCatsInput.value)"> <img src="../../../assets/icons/search.png">
+          <ul class="animated fadeIn options selected" *ngIf="category">
+            <li class="animated fadeIn"><img src="{{category.icon}}" alt="{{category.name}} icon">{{category.name}} <span class="float-right">selected</span></li>
+          </ul>
+          <ul *ngIf="searchCatIsEmpty" class="animated fadeIn options">
+            <li *ngFor="let cat of categories" (click)="category = cat; section2 = true"><img src="{{cat.icon}}" alt="{{cat.name}} icon">{{cat.name}}</li>
+          </ul>
+
+          <ul class="animated fadeIn options">
+            <li *ngFor="let cat of searchedCats$ | async" (click)="category = cat; section2 = true"><img src="{{cat.icon}}" alt="{{cat.name}} icon">{{cat.name}}</li>
+          </ul>
+
+        </div><!-- /col-md-6  first table -->
+
+
+      </div><!-- /row  first table  -->
+
+
+
+
+    </div> <!-- /container -->
+  </div> <!-- /main-info -->
+
+  <div class="extended-main">&nbsp;</div>
+
+  <!--<br><br><br><br><br><br>-->
+<div class="container animated fadeIn" *ngIf="section2">
+  <div class="row">
+    <div class="col-md-6">
+      <br><br>
+      <h2><span class="bold blue">3.</span> De laatste puntjes invullen<span class="bold blue">.</span></h2>
+      <br>
+      <label for="titel">Titel activiteit</label><br>
+      <input id="titel" type="text" placeholder="Titel activiteit" class="form-control">
+      <br>
+      <label for="description">Beschrijving activiteit</label><br>
+      <textarea id="description" class="form-control" name="description" cols="30" rows="10" placeholder="Beschrijving." (input)="section3 = true"></textarea>
+
+      <br><br>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="menu-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 image-section" *ngIf="section3">
+          <div class="img-box animated fadeIn">
+            <br><br>
+            <h2><span class="bold blue">4.</span> Selecteer of upload afbeeldingen<span class="bold blue">.</span></h2>
+
+            <form id="form1" runat="server">
+              <input (click)="section4 = true" type='file' id="inputFile" />
+            </form>
+            <br>
+          </div>
+
+        </div><!-- /col-md-6  images -->
+
+        <div class="col-md-6 attendees-section animated fadeIn" *ngIf="section4">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <br><br>
+                <h2><span class="bold blue">5.</span> Verstuur uitnodigingen<span class="bold blue">.</span></h2>
+
+                <p>Alle gegevens zijn ingevuld</p>
+
+                <p>Verstuurde uitnodigingen zijn niet terug te draaien</p>
+
+                <p>Activiteiten kunnen geanulleerd worden</p>
+                <br><br>
+              </div>
+            </div>
+
+
+
+            <div class="row"> <!-- call section -->
+              <div class="col-md-12 call-section">
+                <br><br>
+                <div class="box">
+                  <div class="top">
+                    <div class="left boxs inf">
+                      <img class="icn1" src="../../../assets/icons/check.png">
+                      7 E-mails gereed
+                    </div>
+                    <div class="right boxs inf" *ngIf="category">
+                      <img class="icn2"  src="{{category.icon}}">
+                      25+ Keuzes
+                    </div>
+                  </div>
+
+                  <div class="btn-section">
+                    <div class="row">
+                      <div class="col-md-12 center-content">
+                        <button class="btn primary uppercase  clickable" (click)="alertMess()" routerLink="/dashboard">Uitnodigingen versturen
+                          <img src="../../../assets/icons/down.png" height="15" width="15"></button>
+                        <br><br>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <p class="info rmv-margin">Er is momenteel keuze uit 8 menus</p>
+                  <p class="info add-margin">Er kunnen altijd meer menus worden toegevoegd</p>
+                </div>
+              </div>
+            </div><!-- /row    call to action section -->
+
+
+
+          </div><!-- /container   (displaying users & call to action ) -->
+
+        </div><!-- /col-md-6  attendees -->
+      </div><!-- /row   image & attendees -->
+
+
+
+
+    </div>
+  </div>
+
+
+</div> <!-- /*ngIf = Activity loaded -->
+
+
+<br><br><br><br><br><br><br><br><br><br><br>

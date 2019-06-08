@@ -1,0 +1,809 @@
+h1 {
+  font-family: 'Geomanist', sans-serif;
+}
+
+h1::after {
+  display: inline-block;
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #1B4DAC;
+  border-radius: 100%;
+  margin-left: 5px;
+}
+
+/**************************************/
+/******** ACTIVITY CARD (main) ********/
+/**************************************/
+
+.sliced-cards {
+  padding: 25px 0 0 0;
+  overflow: hidden;
+}
+
+
+.category-section .food-container {
+  display: flex;
+  justify-content: center;
+}
+
+.category-section .food-container img.food-icon {
+  position: absolute;
+  margin: auto;
+  top: 30%;
+  z-index: 99999;
+}
+
+.view {
+  overflow: hidden;
+}
+div.activity {
+  overflow: hidden;
+  background: #FFFFFF;
+  box-shadow: 0 0 18px 0 rgba(162, 162, 162, 0.4);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 30px;
+}
+
+div.activity h2.card-title-custom {
+  font-family: Geomanist-Bold, sans-serif;
+  font-size: 24px;
+  color: #2A2A2A;
+  font-weight: 200;
+}
+
+section#declined .activity h2.card-title-custom {
+  display: inline-block;
+}
+
+section#declined .activity-header span {
+  float: right;
+}
+
+div.activity .category-section {
+  display: block;
+  max-height: 230px;
+  overflow: hidden;
+  /*background: url("../../../assets/misc/spare-ribs.png") no-repeat center;*/
+}
+
+div.activity .category-section img.food-image {
+  width: 208px;
+  height: 230px;
+}
+
+div.activity .category-section:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin-right: 15px;
+  background: rgba(0, 0, 0, 0.40);
+}
+
+div.activity .info-section {
+  padding: 25px 0;
+}
+
+div.activity .invites-info-section {
+  height: 100%;
+}
+
+/***************************************/
+/******** ACTIVITY INFO SECTION ********/
+/***************************************/
+
+.declined-info-section ul.info,
+.invites-info-section ul.info {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 30px 0;
+}
+
+.info-section ul.info {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.declined-info-section ul.info li,
+.invites-info-section ul.info li,
+.info-section ul.info li {
+  margin-bottom: 5px;
+  font-size: 17px;
+  color: #a0a0a0;
+}
+
+.declined-info-section ul.info li:first-child,
+.invites-info-section ul.info li:first-child,
+.info-section ul.info li:first-child {
+  color: #1D1D1D;
+}
+
+
+.declined-info-section ul.info li img,
+.invites-info-section ul.info li img,
+.info-section ul.info li img {
+  max-width: 15px;
+  margin: 0 5px 2px 0;
+  border-radius: 100px;
+}
+
+.invites-info-section .activity-header {
+  display: block;
+}
+
+.invites-info-section .activity-header h2,
+.invites-info-section .activity-header span {
+  display: inline-block;
+}
+
+section#declined .invites-info-section .activity-header span,
+section#invites .invites-info-section .activity-header span {
+  float: right;
+}
+
+section#declined .declined-info-section .activity-header img,
+section#invites .invites-info-section .activity-header img {
+  width: 35px;
+}
+
+
+
+div.activity:hover {
+  box-shadow: 0 0 20px 0 rgba(130,131,134,1);
+}
+
+div.activity:hover h2 {
+  text-decoration: none!important;
+  color: #1B4DAC;
+}
+
+div.activity .activity-footer button.edit-attend,
+div.activity .activity-footer button.attend,
+div.activity .activity-footer button.decline {
+  background: none;
+  padding: 10px;
+  border: none;
+  display: inline-block;
+}
+
+div.activity .activity-footer button.attend,
+div.activity .activity-footer button.decline {
+  width: 45%
+}
+
+.declined-info-section h2.card-title-custom img,
+.activity-footer button.decline img {
+  height: 17px;
+}
+
+.declined-info-section h2.card-title-custom img {
+  margin-right: 5px;
+}
+
+div.activity .activity-footer button.edit-attend,
+div.activity .activity-footer button.attend {
+  border: 2px solid #1B4DAC;
+  color: #1B4DAC;
+}
+
+
+
+div.activity .activity-footer button.attend:hover {
+  background: #1B4DAC;
+  color: #fff;
+}
+
+div.activity .activity-footer button.attend {
+  /*float:right;*/
+}
+
+.declined-info-section span.organizer {
+  margin-right: 15px;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+
+div.activity div.info span:first-child {
+  opacity: 1;
+}
+
+div.activity div.info span:first-child img {
+  margin: 0 5px 0;
+  width: 24px;
+  height: 19px;
+}
+
+div.activity div.info span img {
+  width: 17px;
+  height: 17px;
+}
+
+div.activity span.organizer {
+  font-size: 18px;
+  color: #9B9B9B;
+}
+
+div.activity span.organizer img{
+  width: 24px;
+  height: 24px;
+  border-radius:50%;
+  background: #eee;
+}
+
+/*************************/
+/******** INVITES ********/
+/*************************/
+
+section#invites {
+  background: #F0F0F1;
+  padding: 5% 8%;
+}
+
+section#invites:after {
+  content: "";
+  position: absolute;
+  top: 725px;
+  right: 0;
+  background: url("../../../assets/img/section-rounding.svg") #fff;
+  width: 153px;
+  height: 116px;
+  display:none;
+}
+
+section#invites #invite-info {
+  background: #E6E6E8;
+  padding: 25px 30px;
+  box-sizing: border-box;
+}
+
+section#invites #invite-info h2 {
+  color: #323232;
+  display: block;
+  margin-bottom: 1em;
+}
+
+section#invites #invite-info h3 {
+  font-size: 1.2em;
+}
+
+section#invites #invite-info h3,
+section#invites #invite-info .icon {
+  display: inline-block;
+}
+
+section#invites #invite-info .icon img {
+  width: 15px;
+  padding-bottom: 5px;
+}
+
+section#invites #invite-info h3,
+section#invites #invite-info p {
+  margin-left: 10px;
+}
+
+section#invites #invite-info p {
+  margin-left: 25px;
+}
+
+section#invites #invite-info h2:after {
+  display: inline-block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #1B4DAC;
+  border-radius: 100%;
+  margin-left: 5px;
+}
+
+section#invites .invite-card {
+  background: #FFFFFF;
+  box-shadow: 0 0 18px 0 rgba(162, 162, 162, 0.4);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 30px;
+}
+
+div.activity .info-section::after {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background: red;
+  display: none;
+}
+
+.less-margin {
+  margin: -4px;
+}
+
+.no-image-card {
+  padding: 10px;
+}
+
+.no-image-card ul.info {
+  margin-bottom: 20px;
+}
+
+.invites-info-padding {
+  padding: 15px 10px 0 0;
+}
+
+/*******************************/
+/******** NOT ATTENDING ********/
+/*******************************/
+
+section#declined {
+  background: #fff;
+  padding: 5% 8%;
+}
+
+section#declined h2.title {
+  margin-bottom: 40px;
+}
+
+section#declined h2.title:after {
+  display: inline-block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #1B4DAC;
+  border-radius: 100%;
+  margin-left: 5px;
+}
+
+#mobile-add-event {
+  border-radius: 100px;
+  width: 80px;
+  height: 80px;
+  background: #f39c12;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0 0 10px #bfbfbf;
+  display: none;
+  z-index: 999;
+}
+
+#mobile-add-event img {
+  height: 28px;
+  margin: 24px;
+}
+
+@media only screen and  (max-width: 640px) {
+  #mobile-add-event {
+    display: block;
+  }
+
+  .declined-info-section .card-title-custom,
+  .invites-info-section .card-title-custom {
+    margin: 10px 0 0 13px;
+  }
+
+  .no-image-card {
+    padding: 0 !important;
+  }
+
+  section#invites h2.title,
+  h2.mobile-invites-title {
+    font-size: 24px !important;
+    margin: 0 0 25px 15px;
+  }
+
+  section#declined h2.title {
+    font-size: 24px;
+    margin: 10px 0 30px 0;
+  }
+
+  h2.mobile-invites-title:after {
+    display: inline-block;
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #1B4DAC;
+    border-radius: 100%;
+    margin-left: 5px;
+  }
+
+  div.activity span.organizer {
+    display: none;
+  }
+
+  div.activity {
+    min-height: 111px;
+  }
+
+  div.activity .info-section {
+    /*padding: 2px 0 0 0;*/
+  }
+
+  .declined-info-section ul.info,
+  .info-section ul.info {
+    /*padding-left: 15px;*/
+    margin-bottom: 0;
+  }
+
+  section#invites #invite-info:after {
+    display: none;
+  }
+}
+
+/*******************************/
+/******** MEDIA QUERIES ********/
+/*******************************/
+
+@media screen and (min-width: 767px) and (max-width: 991px) {
+  div.activity .category-section {
+    width: 100%;
+  }
+
+  section#invites:after {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 736px) {
+  .declined-info-section ul.info li img,
+  .invites-info-section ul.info li img,
+  .info-section ul.info li img {
+    max-width: 12px;
+  }
+
+  div.activity .category-section-mobile:before {
+    width: calc(100% - 296px);
+  }
+
+  div.activity h2.card-title-custom {
+    font-size: 18px;
+  }
+
+  section#invites::after {
+    display: none;
+  }
+
+  .declined-info-section ul.info,
+  .invites-info-section ul.info {
+    margin: 15px 0 20px 0;
+    padding-left: 25px;
+    min-height: 46px;
+  }
+
+  .activity-footer button.attend,
+  .activity-footer button.decline,
+  .declined-info-section ul.info li,
+  .invites-info-section ul.info li,
+  .info-section ul.info li {
+    font-size: 14px;
+  }
+
+  .declined-info-section ul.info li,
+  .invites-info-section ul.info li,
+  .info-section ul.info li {
+    margin-bottom: 0;
+  }
+
+
+  .invites-info-padding {
+    padding: 0;
+  }
+
+  section.invites {
+    padding: 0;
+  }
+
+  div.activity .info-section::after {
+    display: block;
+  }
+
+  div.activity .category-section {
+    min-height: auto;
+  }
+
+  div.activity .category-section img {
+    height: auto;
+  }
+}
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+  @media (min-width: 1281px) {
+  }
+
+
+
+  /*
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+
+  @media (min-width: 1025px) and (max-width: 1490px) {
+
+    .activity .category-section img.food-image {
+      width: 100%;
+    }
+
+    section#invites .activity .activity-footer button.attend,
+    section#invites .activity .activity-footer button.decline {
+      width: 45%;
+    }
+
+    div.activity .info-section {
+      padding: 25px 0;
+    }
+  }
+
+  /*
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .activity .category-section img.food-image {
+      width: 100% !important;
+    }
+
+    section#invites .activity .activity-footer button.attend,
+    section#invites .activity .activity-footer button.decline {
+      width: 50%;
+      display: inline-block;
+    }
+
+    section#invites .activity-footer button.decline img {
+      height: 16px;
+    }
+
+    section#invites .activity-footer button.decline {
+      border: #F7F7F6 2px solid !important;
+      background: #f7f7f7 !important;
+    }
+
+    section#invites .activity-footer button.attend {
+      margin-right: 0 !important;
+      float: none !important;
+      background: #1B4DAC !important;
+      color: #fff !important;
+    }
+
+    section#declined .activity-footer button.attend {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .activity .info-section {
+      padding: 25px 25px !important;
+      height: 100%;
+    }
+  }
+
+  /*
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    section#appointments div.activity .category-section img.food-image {
+      width: 100%;
+    }
+
+    section#invites div.activity .category-section img.food-image {
+      width: 93%;
+    }
+
+    section#invites #invite-info {
+      padding: 20px 0 0 0;
+    }
+
+    section#invites .activity .activity-footer button.attend,
+    section#invites .activity .activity-footer button.decline {
+      width: 50%;
+    }
+
+    .activity .category-section img.food-image {
+      width: 100% !important;
+    }
+
+    .activity .info-section {
+      padding: 25px 25px;
+      height: 100%;
+    }
+
+    .mobile-padding {
+      padding: 0 !important;
+    }
+
+    section#invites .activity .sliced-cards .activity-footer {
+      margin-left: -15px;
+    }
+
+    section#invites .activity .category-section img.food-image {
+      width: 158px;
+      height: 157px;
+    }
+
+  }
+
+  /*
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .mobile-padding {
+      padding: 0 !important;
+    }
+
+    section#invites .activity .sliced-cards .activity-footer {
+      margin-left: -15px;
+    }
+
+    section#invites .activity .category-section img.food-image {
+      width: 158px;
+      height: 157px;
+    }
+
+    div.activity .info-section {
+      padding: 25px 25px;
+    }
+
+    section#declined,
+    section#invites {
+      padding: 0;
+    }
+
+    section#appointments .category-section img.food-image,
+    .activity .category-section img.food-image {
+      width: 100% !important;
+    }
+
+    section#invites .activity .activity-footer button.attend,
+    section#invites .activity .activity-footer button.decline {
+      min-width: 102px;
+      display: inline-block;
+    }
+
+    section#invites .activity-footer button.decline img {
+      height: 16px;
+    }
+
+    section#invites .activity-footer button.decline {
+      border: #F7F7F6 2px solid !important;
+      background: #f7f7f7 !important;
+    }
+
+    section#invites .activity-footer button.attend {
+      margin-right: 0 !important;
+      float: none !important;
+      background: #1B4DAC !important;
+      color: #fff !important;
+    }
+
+    section#appointments .category-section {
+      height: 140px !important;
+    }
+
+    section#appointments .category-section img.food-image {
+      height: 140px !important;
+    }
+
+    section#invites #invite-info {
+      background: none;
+    }
+
+    section#declined .activity-footer button.edit-attend {
+      border: 2px solid #1B4DAC;
+      color: #fff;
+      background: #1B4DAC;
+      width: 100%;
+    }
+
+    .sliced-cards {
+      padding: 0;
+    }
+
+  }
+
+    /*
+      ##Device = Most of the Smartphones Mobiles (Portrait)
+      ##Screen = B/w 320px to 479px
+    */
+    @media (min-width: 320px) and (max-width: 480px) {
+      section#invites .activity .activity-footer button.attend {
+        min-width: 102px;
+      }
+
+      section#invites .activity .activity-footer button.decline {
+        width: 50%;
+      }
+
+      section#invites .activity .activity-footer button.attend,
+      section#invites .activity .activity-footer button.decline {
+        display: inline-block;
+      }
+
+      section#invites .activity-footer button.decline img {
+        height: 16px;
+      }
+
+      section#invites .activity-footer button.decline {
+        border: #F7F7F6 2px solid !important;
+        background: #f7f7f7 !important;
+      }
+
+      section#invites .activity-footer button.attend {
+        margin-right: 0 !important;
+        float: none !important;
+        background: #1B4DAC !important;
+        color: #fff !important;
+      }
+
+      section#declined .activity-footer button.attend {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      /*section#invites .category-section img.food-image {*/
+        /*width: 100% !important;*/
+      /*}*/
+
+      section#appointments .category-section {
+        height: 140px !important;
+      }
+
+      section#declined,
+      section#invites {
+        padding: 0;
+      }
+
+      section#invites #invite-info {
+        background: none;
+        padding: 20px 0 0 0;
+      }
+
+      section#invites #invite-info {
+        background: none;
+        padding: 20px 0 0 0;
+      }
+
+      section#declined .activity-footer button.edit-attend {
+        border: 2px solid #1B4DAC;
+        color: #fff;
+        background: #1B4DAC;
+        width: 100%;
+      }
+
+      div.activity .info-section {
+        margin: 0;
+      }
+
+      .mobile-padding {
+        padding: 0 !important;
+      }
+
+      section#invites .activity .sliced-cards .activity-footer {
+        margin-left: -15px;
+      }
+
+      section#invites .activity .category-section img.food-image {
+        width: 100%;
+        height: 157px;
+      }
+
+      section#invites .activity .category-section:before {
+        margin-right: 0;
+        width: 100%
+      }
+
+      .sliced-cards {
+        padding: 0;
+      }
+
+    }
+
+

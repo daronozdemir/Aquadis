@@ -1,0 +1,248 @@
+<div class="view" *ngIf="userService.loggedInUser != null">
+  <section id="appointments">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Mijn afspraken</h1>
+        </div>
+      </div>
+
+
+      <!--geaccepteerd-->
+      <div class="row">
+        <a *ngFor="let attending of attendingActivities | slice:0:4"
+           class="col-lg-6 col-md-6 col-sm-6 col-12 animated fadeIn fast"  (click)="setTogglePresent(true, true)" routerLink="/detail/{{attending.id}}">
+          <div class="activity">
+            <div class="row">
+              <div class="col-lg-5 col-md-12 col-sm-12 col-5">
+                <div class="category-section">
+                  <div class="food-container">
+                    <img class="food-icon" src="{{ getCategoryIcon(attending.organizerId) }}" >
+                  </div>
+                  <img class="food-image" src="{{attending.img}}" alt="Food category">
+                </div>
+              </div>
+
+              <div class="col-lg-7 col-md-12 col-sm-12 col-7">
+
+                <div class="info-section">
+                  <h2 class="card-title-custom">{{attending.date}}</h2>
+
+                  <ul class="info">
+
+                    <li><img src="../../../assets/icons/check.svg" alt="check icon">
+                      {{attending.attendees}} <span>Aanwezig</span>
+                    </li>
+                    <li>
+                      <img src="../../../assets/icons/bell.svg" alt="bell icon">
+                      {{attending.unknown}} <span>Niet gereageerd</span>
+                    </li>
+                    <li>
+                      <img src="../../../assets/icons/cross.svg" alt="cross icon">
+                      {{attending.notAttending}} <span>Niet aanwezig</span>
+                    </li>
+                  </ul>
+
+                  <span class="organizer">
+                    <img src="{{ getUserImg(attending.organizerId) }}" alt="organizer profile">
+                      {{attending.organizer}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!--uitgenodigd-->
+  <section id="invites">
+    <div class="inv-container container-fluid animated fadeIn fast">
+
+      <div class="row">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+          <div id="invite-info" class="animated fadeIn">
+            <h2>Uitnodigingen</h2>
+
+            <div class="row">
+            <div class="col-lg-12 col-md-4 col-sm-12 col-12">
+              <div class="icon">
+                <img src="../../../assets/icons/bell-yellow.svg" alt="Bell icon">
+              </div>
+              <h3>{{invites.length}} Uitnodigingen</h3>
+              <p>Je hebt nog {{invites.length}} onbeantwoorde uitnodingen op je kalender staan.</p>
+            </div>
+
+            <div class="col-lg-12 col-md-4 col-sm-12 col-12">
+              <div class="icon">
+                <img src="../../../assets/icons/clock.svg" alt="Clock icon">
+              </div>
+              <h3>{{invites_inv.length}} deze week</h3>
+              <p><b>Let op:</b> {{invites_inv.length}} uitnodiging(en) moet(en) deze week beantwoord worden.</p>
+            </div>
+
+            <div class="col-lg-12 col-md-4 col-sm-12 col-12">
+              <div class="icon">
+                <img src="../../../assets/icons/check.svg" alt="Check icon">
+              </div>
+              <h3>{{invites_declined.length + invites_going.length}} toezeggingen</h3>
+              <p>Voor de komende activiteiten zijn al {{invites_declined.length + invites_going.length}}  toezeggingen gedaan.</p>
+            </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+          <div class="row">
+              <!--card 1 + card 2 with image-->
+              <div *ngFor="let invited of invitedActivities | slice:0:2" class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="activity"  (click)="setTogglePresent(false, false)" routerLink="/detail/{{invited.id}}">
+                  <div class="row">
+
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-5 mobile-padding">
+                      <div class="category-section">
+                        <div class="food-container">
+                          <img class="food-icon" src="{{ getCategoryIcon(invited.organizerId) }}" alt="Category icon">
+                        </div>
+                        <img class="food-image" src="{{invited.img}}" alt="Food category">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-7 mobile-padding">
+                      <div class="invites-info-section sliced-cards">
+                        <div class="activity-header">
+                          <h2 class="card-title-custom">{{invited.date}}</h2>
+                        </div>
+
+                        <ul class="info">
+                          <li><img src="../../../assets/icons/check.svg" alt="check icon">
+                            <span>{{invited.attendees + invited.notAttending}} Aanwezig</span>
+                          </li>
+                          <li class="organizer">
+                            <img src="{{ getUserImg(invited.organizerId) }}" alt="organizer profile">
+                            {{invited.organizer}}
+                          </li>
+                        </ul>
+
+                        <div class="activity-footer">
+                          <button class="decline"  (click)="setTogglePresent(false, true)" routerLink="/detail/{{invited.id}}">
+                            <img alt="decline" height="23" src="../../../assets/icons/decline.svg" width="23"> Afwezig</button>
+
+                          <button class="attend"  (click)="setTogglePresent(true, true)" routerLink="/detail/{{invited.id}}">Aanwezig</button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+          </div>
+
+          <!--Card 3 + 4 + 5 no image-->
+          <div class="row">
+            <div *ngFor="let invited of invitedActivities | slice:2:6" class="col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="activity no-image-card">
+                <div class="row">
+                <div class="d-lg-none d-md-none col-sm-5 col-5 mobile-padding">
+                  <div class="category-section">
+                    <div class="food-container">
+                      <img class="food-icon" src="{{ getCategoryIcon(invited.organizerId) }}" alt="Category icon">
+                    </div>
+                    <img class="food-image" src="{{invited.img}}" alt="Food category">
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-7 col-7 mobile-padding">
+                <div class="invites-info-section">
+                  <div class="activity-header">
+                    <h2 class="card-title-custom">{{invited.date}}</h2>
+                    <span><img src="{{ getCategoryIcon(invited.organizerId) }}" alt="Category icon"></span>
+                  </div>
+
+                  <ul class="info">
+                    <li><img src="../../../assets/icons/check.svg" alt="check icon">
+                      <span>{{invited.attendees}} Aanwezig</span>
+                    </li>
+                    <li><img src="{{ getUserImg(invited.organizerId) }}" alt="organizer profile">
+                      <span>{{invited.organizer}}</span>
+                    </li>
+                  </ul>
+
+                  <div class="activity-footer">
+                    <button class="decline">
+                      <img alt="decline" src="../../../assets/icons/decline.svg"> Afwezig
+                    </button>
+                    <button class="attend" routerLink="/detail/{{invited.id}}">Aanwezig</button>
+                  </div>
+                </div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <!--afwezig-->
+  <section id="declined">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-12">
+          <h2 class="title">Afgewezen</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div *ngFor="let declined of declinedActivities" class="col-lg-3 col-md-6 col-sm-6 col-12">
+
+          <div class="activity no-image-card">
+            <div class="declined-info-section">
+              <div class="activity-header">
+                <h2 class="card-title-custom">
+                  <img alt="decline" src="../../../assets/icons/decline.svg"> {{declined.date}}</h2>
+                <span><img src="{{ getCategoryIcon(declined.organizerId) }}" alt="Category icon"></span>
+              </div>
+
+              <ul class="info">
+                <li><img src="../../../assets/icons/check.svg" alt="check icon">
+                  <span>{{declined.attendees}} Aanwezig</span>
+                </li>
+                <li><img src="../../../assets/icons/bell.svg" alt="bell icon">
+                  <span>{{declined.unknown}} Niet gereageerd</span>
+                </li>
+                <li>
+                  <img src="../../../assets/icons/cross.svg" alt="cross icon">
+                  {{declined.notAttending}} Niet aanwezig
+                </li>
+              </ul>
+
+              <div class="activity-footer">
+                <span class="organizer"><img src="../../../assets/img/avatar.svg" alt="organizer profile">
+                {{declined.organizer}}</span>
+                <button class="edit-attend"  (click)="setTogglePresent(false, false)" routerLink="/detail/{{declined.id}}">Aanpassen</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="mobile-add-event">
+    <a title="Aanmaken" [routerLink]="['/organize']" href="#">
+      <img src="../../../assets/icons/plus.svg" alt="plus icon">
+    </a>
+  </div>
+
+
+</div> <!-- Check if logged in -->
+
+<app-login *ngIf="userService.loggedInUser == null"></app-login>

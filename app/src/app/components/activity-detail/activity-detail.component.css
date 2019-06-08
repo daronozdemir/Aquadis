@@ -1,0 +1,493 @@
+/** TOP SECTION **/
+.top-info {
+  z-index: 0;
+  top: 0;
+  background: #fff;
+  width: 100%;
+}
+.top-info:after{
+  clear: both;
+}
+.top-info h1 {
+  font-weight: 600;
+}
+.top-info span.lighter {
+  font-family: Geomanist, sans-serif;
+  font-weight: lighter;
+}
+
+/** MAIN INFO SECTION **/
+.main-info {
+  background: #F0F0F1;
+  width: 100%;
+}
+.extended-main {
+  background: #F0F0F1;
+  width: 100%;
+  height:50px;
+}
+/** slug **/
+.slug {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.backLink {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.backLink:hover{
+  cursor: pointer;
+  color: #1B4DAC !important;
+}
+.backLink span {
+  font-size: 18px;
+}
+.divider {
+  margin: 0 15px;
+}
+
+/** organizer **/
+.organizer {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.organizer .right {
+  float: right;
+}
+.organizer .right .img-box {
+  width: 25px;
+  height:25px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.organizer .right .img-box img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.organizer .right span {
+  padding-left: 10px;
+  display: inline-block;
+}
+
+
+
+/** IMAGE SECTION **/
+.image-section {
+  margin-top: 25px;
+  background: #fff;
+  height: 400px;
+  width: 100%;
+}
+.image-section .img-box {
+  padding: 25px 10px;
+}
+.image-section img {
+  width: 100%;
+  max-height: 315px;
+  box-shadow: rgba(164,164,164,0.5) 0 4px 20px;
+}
+
+/** ATTENDEES SECTION **/
+.attendees-section {
+  background: #E6E6E8;
+}
+
+.attendees-section h2 {
+  font-size: 26px;
+}
+.attendees-section .p-top {
+  padding: 50px 25px 15px;
+}
+.attendees-section ul,
+.attendees-section li{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.attendees-section li:first-child {
+  padding-top: 0;
+}
+.attendees-section li {
+  padding: 10px 0;
+  margin-left: 10px;
+}
+.attendees-section li:after {
+  clear:both;
+
+}
+.attendees-section p.names{
+  margin-left: 10px;
+  position: absolute;
+  display: inline-block;
+  font-size: 17px;
+  margin-top: -3px;
+}
+.attendees-section span.status {
+  color: #58D47E;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-bottom: -5px;
+  margin-top: 18px;
+  position: absolute;
+}
+.attendees-section span.status.grey {
+  color: #444;
+}
+.attendees-section .img-box {
+  width: 40px;
+  height:40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.attendees-section .img-box img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.toggle-btn {
+  transition: all ease-in-out 0.2s;
+  margin-left:15px;
+  color: #323232;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.toggle-btn:hover{
+  color: #535353;
+}
+
+.toggle-btn img.rotate{
+  transition: all ease-in-out 0.2s;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.toggle-btn img{
+  transition: all ease-in-out 0.2s;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/** call-section **/
+.call-section {
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+
+.call-section  div.box {
+  background: #fff;
+  margin: 10px;
+}
+
+.call-section  div.box .top {
+  height: 85px;
+  border-bottom: 3px solid #E6E6E8;
+  width: 100%;
+}
+
+.call-section  div.box .boxs.inf {
+  padding-top: 25px;
+  font-family: Geomanist;
+  font-size: 18px;
+  color: #1D1D1D;
+  height: 85px;
+}
+
+.call-section  div.box .boxs.inf.left {
+  border-right:2px solid #E6E6E8;
+}
+.call-section  div.box .boxs.inf.right {
+  border-left:1px solid #E6E6E8;
+}
+.call-section  div.box .boxs {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.call-section  div.box .top .boxs img.icn1{
+  height: 18px;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+.call-section  div.box .top .boxs img.icn2{
+  height: 28px;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+.call-section .btn-section {
+  margin: 30px 15px;
+  padding-bottom: 20px;
+}
+
+.call-section p.info {
+  text-align: center;
+  font-size: 14px;
+  color: #545454;
+}
+.call-section .rmv-margin {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.call-section .add-margin {
+  padding-bottom: 35px;
+}
+
+
+
+
+
+.center-content {
+  text-align: center;
+  align-content: center;
+}
+
+
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+
+.notes-section{
+  top: 0;
+  position: absolute;
+  margin-top: -120px;
+  margin-left: -10px;
+}
+.notes-section span {
+  font-family: Geomanist-Bold;
+  font-size: 19px;
+  color: #323232;
+}
+
+
+
+.menu-items {
+  background: #fff;
+  transition: all ease-in-out 0.2s;
+}
+.menu-items .item-container{
+  padding: 25px;
+}
+
+.menu-items .item-container .menu-item {
+  margin: 15px 0;
+}
+.menu-items .item-container .menu-item span {
+  font-family: Geomanist-Bold;
+  font-size: 15px;
+  color: #323232;
+}
+
+.menu-items .item-container .menu-item .circle.btn.blue {
+  background: #1B4DAC;
+  border-radius: 50%;
+  float: right;
+  margin-top: -50px;
+}
+.menu-item .circle.btn.blue:hover {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.50);
+}
+.menu-item .circle.btn.blue:active {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
+}
+.bottem-part {
+  width:100%;
+  background: #F0F0F1;
+  position: absolute;
+  left: 0;
+  height: 65px;
+  bottom:0;
+}
+.bottem-part input {
+  margin: 15px;
+  border: none;
+  height: 35px;
+  width: 250px;
+}
+
+span.lbl {
+  text-transform: uppercase;
+  font-family: Geomanist-Bold;
+  font-size: 19px;
+  color: #323232;
+}
+.menu-items .item-container .menu-item .img-box {
+  width:100%;
+}
+.menu-items .item-container .menu-item .info {
+  border-bottom: 1px solid #eee;
+}
+.menu-items .item-container .menu-item p {
+  font-size: 15px;
+}
+.menu-section {
+  background: #E6E6E8;
+  width: 100%;
+  padding: 75px 0 100px;
+  min-height: 95vh;
+}
+.hover {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.hover:hover {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.50);
+}
+.hover:active {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
+}
+.hover.active {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+}
+
+.img-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.img-container .overlay {
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(0, 0, 0, .6);
+  color: #FFF;
+}
+.img-container.active .overlay {
+  display: none;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+}
+.img-container .overlay:hover{
+  background: rgba(0, 0, 0, .1);
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.50);
+}
+.img-container .overlay:active {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
+}
+.order-section .order {
+  animation-duration: 0.5s;
+}
+.order-section .order span{
+  float: right;
+  font-family: Geomanist-Bold, 'sans-serif';
+}
+
+.attend-status {
+  text-transform: uppercase;
+  /* text-align: center; */
+  width: 100%;
+  padding: 0 0 25px 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.red {
+  background: #eb2f06 !important;
+  color: #fff;
+}
+.green {
+  background: rgb(21, 137, 52) !important;
+  color: #fff;
+}
+
+@media (min-width: 1025px) and (max-width: 1490px) {
+  .attend-status {
+    padding: 15px 0 0 0;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .notes-section {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .notes-section {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  .notes-section {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  h2 {
+    padding: 0 !important;
+  }
+
+  .attendees-section .p-top {
+    padding: 20px 25px 25px;
+  }
+
+  .call-section .box {
+    margin: 0 !important;
+  }
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+
+
+  h2 {
+    padding: 0 !important;
+  }
+
+  .organizer {
+    padding-bottom: 20px;
+  }
+
+  .notes-section {
+     margin-top: 0 !important;
+     margin-left: 0 !important;
+  }
+
+  .attendees-section .p-top {
+    padding: 20px 25px 25px;
+  }
+
+  .call-section .box {
+    margin: 0 !important;
+  }
+
+  .call-section  div.box .boxs.inf {
+    padding-top: 15px;
+    font-size: 16px;
+    height: 85px;
+  }
+
+  .attend-status {
+    width: 100%;
+    padding: 0 0 25px 0;
+  }
+}
+

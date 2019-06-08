@@ -1,0 +1,10 @@
+
+<ul>
+  <li *ngFor="let activity of activites">
+    <a routerLink="/detail/{{activity.id}}">
+      <span class="badge">{{activity.id}}</span> {{activity.date}}
+    </a>
+    <button class="delete" title="delete activity"
+      (click)="delete(activity)">x</button>
+  </li>
+</ul>

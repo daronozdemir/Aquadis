@@ -1,0 +1,55 @@
+<br><br><br><br><br><br><br><br>
+
+
+<div class="container" *ngIf="loading === false">
+  <div class="row">
+    <div class="col-md-12 center-content">
+      <h2>Account gegevens wijzigen</h2>
+      <p>Weet je zeker dat u uw account gegegvens wilt wijzigen?</p>
+      <button (click)="loading = true; reload();" class="btn-light">Ja</button> <button class="btn-dark" routerLink="/dashboard">Nee</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="loading === true" class="animated fadeIn">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+        Unieke ID:{{loggedInUser.id}} <br>
+      </div>
+      <div class="col-md-3">
+        <h5 >Profiel foto</h5>
+        <img [ngModel]="loggedInUser.avatarUrl" src="{{loggedInUser.avatarUrl}}" alt="">
+        <input type="file">
+        <br>
+      </div>
+
+      <div class="col-md-8">
+        <h5>Naam</h5>
+        <input type="text" [(ngModel)]="loggedInUser.name" placeholder="{{loggedInUser.name}}"/> <br><br>
+
+        <h5>Gebruikersnaam</h5>
+        <input type="text" [(ngModel)]="loggedInUser.username" placeholder="{{loggedInUser.username}}"/><br><br>
+
+        <h5>Email</h5>
+        <input type="text" [(ngModel)]="loggedInUser.email" placeholder="{{loggedInUser.email}}"/><br><br>
+
+        <h5>Wachtwoord</h5>
+        <input type="text" [(ngModel)]="loggedInUser.password" placeholder="{{loggedInUser.password}}"/><br><br>
+
+        <br><br>
+
+        <h5>Notificaties</h5>
+        <p>Je bent <b>{{statee}}</b> ingeschreven voor notificaties</p>
+        <button class="btn btn-lg blue"  (click)="toggles()"> {{stateee}} </button>
+        <br><br><br><br>
+
+        <button class="btn btn-lg blue" (click)="save()" routerLink="/dashboard">opslaan</button>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+

@@ -1,0 +1,6 @@
+{
+	"/api": {
+	"target": "http://localhost:8080/rest_aquadine_war_exploded-1.0/services/rest",
+	"secure": false
+}
+}
